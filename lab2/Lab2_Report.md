@@ -54,7 +54,7 @@
 
 <img src="/pics/rez-image1.jpg" alt="">
 
-<img src="/pics/rez-cont1.jpg" alt="">
+<img src="/pics/reaz-cont1.jpg" alt="">
 
 <img src="/pics/rez1.jpg" alt="">
 
