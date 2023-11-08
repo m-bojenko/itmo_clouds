@@ -52,11 +52,11 @@
 
 8) Проверяем, что все работает. На первых двух картинках показано, что появился образ и контейнер в Docker Desktop, а на третей - результат
 
-<img src="/pics/rez-image.jpg" alt="">
+<img src="/pics/rez-image1.jpg" alt="">
 
-<img src="/pics/rez-cont.jpg" alt="">
+<img src="/pics/rez-cont1.jpg" alt="">
 
-<img src="/pics/rez.jpg" alt="">
+<img src="/pics/rez1.jpg" alt="">
 
 9) Пишем bad Dockerfile
 
