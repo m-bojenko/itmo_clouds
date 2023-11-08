@@ -15,7 +15,9 @@
 3) Пишем good Dockerfile 
 <img src="/pics/good-docker.jpg" alt="">
 Команды:
+
 `FROM python:3.12` -- подключает python 3.12
+
 `COPY ./server.py /task2/` -- копирует из папки, в которой мы находимся (Good docker) скрипт `server.py`, после создания контейнера файл будет скопирован в папку `task2`
 `RUN pip install Flask` -- подключает питоновскую библиотеку Flask
 `ENV MESSAGE="..."` -- создает переменную окружения `MESSAGE`, которой присваивается стартовое значение
@@ -24,10 +26,10 @@
 `ENTRYPOINT [...]` -- запуск основной команды
 `EXPOSE 80` -- открывает порт для контейнера, в данном случает 80-ый
 
-4) Открываем Docker Desktop
-5) В комндной строке собираем образ `good-docker`
+5) Открываем Docker Desktop
+6) В комндной строке собираем образ `good-docker`
 <img src="/pics/good-image.jpg" alt="">
-6) Запускаем контейнер `good-container`
+7) Запускаем контейнер `good-container`
 <img src="/pics/good-cont-run.jpg" alt="">
 
 С помощью команды `-e MESSAGE ="..."` передется значение в переменную окружения `MESSAGE`
