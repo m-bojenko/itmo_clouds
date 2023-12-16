@@ -9,7 +9,7 @@ jobs:
         working-directory: ./lab3
         run: pip install -r requirements.txt
       - name: Run tests
-        run: export PYTHONPATH=$(pwd) && python test.py
+        run: export PYTHONPATH=$(pwd) && python lab3/test.py
 
   deploy:
     runs-on: ubuntu-latest
