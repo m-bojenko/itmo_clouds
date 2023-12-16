@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def get_env_string():
-    return f(34.5)
+    return f(345)
 
 def f(x):
     return str(2*x)
