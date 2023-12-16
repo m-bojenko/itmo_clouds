@@ -1,5 +1,5 @@
 import unittest
-from server import f
+from main import f
 
 tc = unittest.TestCase('__init__')
 
