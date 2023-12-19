@@ -1,32 +1,32 @@
-name: Workflow
-on: push
-jobs:
-  tests:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Install deps
-        working-directory: ./lab3
-        run: pip install -r requirements.txt
-      - name: Run tests
-        run: export PYTHONPATH=$(pwd) && python test.py
+name: Workflow   # Название WorkFlow
+on: push   # Запуск при push
+jobs:   # Что будет выполняться  
+  tests:   # Блок тестов
+    runs-on: ubuntu-latest   # Работает на последней Ubuntu
+    steps:   # Шаги, что будет поэтапно происходить
+      - uses: actions/checkout@v3   # Подключение модуля actions
+      - name: Install deps   # Название шага
+        working-directory: ./lab3    # В какой папке работать
+        run: pip install -r requirements.txt   # Установка файла requirements.txt для дальнейшей успешной сборки test.py
+      - name: Run tests   # Название шага
+        run: export PYTHONPATH=$(pwd) && python test.py   # Запуск файла test.py, запуск тестов
 
   deploy:
-    runs-on: ubuntu-latest
-    needs: tests
-    steps:
-      - uses: actions/checkout@v3
-      - name: Login to Docker Hub
-        uses: docker/login-action@v3
+    runs-on: ubuntu-latest   # Работает на последней Ubuntu
+    needs: tests   # Запускается только после тестов
+    steps:   # Шаги, что будет поэтапно происходить
+      - uses: actions/checkout@v3   # Подключение модуля actions
+      - name: Login to Docker Hub   # Название шага
+        uses: docker/login-action@v3   # Подключение модуля в docker
         with:
-            registry: docker.dmitriy.space
-            username: ${{ secrets.DOCKER_USERNAME }}
-            password: ${{ secrets.DOCKER_PASSWORD }}
+            registry: docker.dmitriy.space   # Использование докера на сервере dmitriy.space
+            username: ${{ secrets.DOCKER_USERNAME }}   # Использовать username из secrets
+            password: ${{ secrets.DOCKER_PASSWORD }}   # Использовать password из secrets
 
-      - name: Docker build image
-        working-directory: ./lab3
-        run: docker build -t docker.dmitriy.space/kabachki .
+      - name: Docker build image   # Название шага
+        working-directory: ./lab3   # В какой папке работать
+        run: docker build -t docker.dmitriy.space/kabachki .   # Создание докер-образа
 
-      - name: Docker push
-        working-directory: ./lab3
-        run: docker push docker.dmitriy.space/kabachki
+      - name: Docker push   # Название шага
+        working-directory: ./lab3   # В какой папке работать
+        run: docker push docker.dmitriy.space/kabachki   # Push докера на сервер
